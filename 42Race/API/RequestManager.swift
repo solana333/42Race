@@ -1,4 +1,8 @@
 
+//  42Race
+//
+//  Created by Phuoc on 3/15/22.
+//
 
 
 import Foundation
@@ -10,13 +14,17 @@ import RxSwift
 
 let provider = MoyaProvider<RequestService>()
 
-final class RequestManager {
+protocol RequestProtocol {
+    func getBusinesses() ->  Observable<[BusinessModel]>
+}
+
+final class RequestManager: RequestProtocol {
     private init () {}
     
     // MARK: - Shared Instance
     static let shared: RequestManager = RequestManager()
     
-    static func requestJsonRx(api: RequestService) -> Observable<Any> {
+    func requestJsonRx(api: RequestService) -> Observable<Any> {
         return Observable.create({ observer -> Disposable in
             let request = provider.request(api, completion: { result in
                 do {
@@ -37,11 +45,10 @@ final class RequestManager {
             }
         })
     }
-    
 
-    static func getRepos(requestDic: [String: Any]) -> Observable<[Repository]> {
-        return requestJsonRx(api: .getRepos(requestDic: requestDic)).map({ json in
-            if let response = Mapper<Repository>().mapArray(JSONObject: json) {
+    func getBusinesses() -> Observable<[BusinessModel]>  {
+        return requestJsonRx(api: .getBusinesses(requestDic: [:])).map({ json in
+            if let response = Mapper<BusinessModel>().mapArray(JSONObject: json) {
                 return response
             } else {
                 throw ResponseError.invalidJSONFormat

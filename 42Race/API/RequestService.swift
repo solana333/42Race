@@ -1,4 +1,8 @@
 
+//  42Race
+//
+//  Created by Phuoc on 3/15/22.
+//
 
 
 import Foundation
@@ -6,7 +10,7 @@ import Moya
 import Alamofire
 
 enum RequestService {
-    case getRepos(requestDic: [String: Any])
+    case getBusinesses(requestDic: [String: Any])
 }
 
 extension RequestService: TargetType {
@@ -20,8 +24,8 @@ extension RequestService: TargetType {
     
     var path: String {
         switch self {
-        case .getRepos(_):
-            return APIConstant.getRepos
+        case .getBusinesses(_):
+            return APIConstant.getBusinesses
         }
       
     }
@@ -46,7 +50,7 @@ extension RequestService: TargetType {
     
     var task: Task {
         switch self {
-        case .getRepos(let requestDic):
+        case .getBusinesses(let requestDic):
             return .requestParameters(parameters: requestDic, encoding: URLEncoding.default)
         }
     }
