@@ -17,6 +17,8 @@ struct BusinessModel: Mappable {
     var isClosed: Bool = false
     var reviewCount: Int = 0
     var rating: Double = 0
+    var category: [CategoryModel] = []
+    var address: String = ""
 
     init?(map: Map) {}
 
@@ -28,5 +30,15 @@ struct BusinessModel: Mappable {
         isClosed <- map["is_closed"]
         reviewCount <- map["review_count"]
         rating <- map["rating"]
+        category <- map["categories"]
+        address <- map["location.address1"]
+    }
+
+    func getCategory() -> String {
+        var category = ""
+        for element in self.category {
+            category = category + " " + element.title
+        }
+        return category
     }
 }

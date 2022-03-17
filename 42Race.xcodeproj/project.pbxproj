@@ -22,6 +22,9 @@
 		98F9A91027E0D76A00070045 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A90C27E0D76A00070045 /* APIConstant.swift */; };
 		98F9A91127E0D76A00070045 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A90D27E0D76A00070045 /* RequestService.swift */; };
 		F05F2BD227E3468F003DC371 /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F2BD127E3468F003DC371 /* BusinessViewModel.swift */; };
+		F05F2BD627E34F69003DC371 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */; };
+		F05F2BD727E34F69003DC371 /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */; };
+		F05F2BD927E353C0003DC371 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F2BD827E353C0003DC371 /* CategoryModel.swift */; };
 		F08AE1E727E152900039FAED /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AE1E627E152900039FAED /* BusinessModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		B21FBE70693696DAA7EC2587 /* Pods_42Race.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_42Race.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD099871942B24BA10D2CEF /* Pods-42Race.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-42Race.debug.xcconfig"; path = "Target Support Files/Pods-42Race/Pods-42Race.debug.xcconfig"; sourceTree = "<group>"; };
 		F05F2BD127E3468F003DC371 /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
+		F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
+		F05F2BD827E353C0003DC371 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		F08AE1E627E152900039FAED /* BusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
 		F2DAF8C5C57D6A6EBE00195E /* Pods-42Race.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-42Race.release.xcconfig"; path = "Target Support Files/Pods-42Race/Pods-42Race.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +145,7 @@
 		98F9A8C627E0D5ED00070045 /* 42Race */ = {
 			isa = PBXGroup;
 			children = (
+				F05F2BD327E34F3D003DC371 /* View */,
 				F05F2BD027E34677003DC371 /* BusinessViewModel */,
 				F08AE1E527E1522E0039FAED /* Model */,
 				98F9A90A27E0D76A00070045 /* API */,
@@ -199,10 +206,20 @@
 			path = BusinessViewModel;
 			sourceTree = "<group>";
 		};
+		F05F2BD327E34F3D003DC371 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */,
+				F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F08AE1E527E1522E0039FAED /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F08AE1E627E152900039FAED /* BusinessModel.swift */,
+				F05F2BD827E353C0003DC371 /* CategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F9A8D427E0D5EF00070045 /* LaunchScreen.storyboard in Resources */,
+				F05F2BD727E34F69003DC371 /* BusinessTableViewCell.xib in Resources */,
 				98F9A8D127E0D5EF00070045 /* Assets.xcassets in Resources */,
 				98F9A8CF27E0D5ED00070045 /* Main.storyboard in Resources */,
 			);
@@ -448,8 +466,10 @@
 				98F9A8CC27E0D5ED00070045 /* ViewController.swift in Sources */,
 				F08AE1E727E152900039FAED /* BusinessModel.swift in Sources */,
 				F05F2BD227E3468F003DC371 /* BusinessViewModel.swift in Sources */,
+				F05F2BD927E353C0003DC371 /* CategoryModel.swift in Sources */,
 				98F9A91127E0D76A00070045 /* RequestService.swift in Sources */,
 				98F9A8C827E0D5ED00070045 /* AppDelegate.swift in Sources */,
+				F05F2BD627E34F69003DC371 /* BusinessTableViewCell.swift in Sources */,
 				98F9A8CA27E0D5ED00070045 /* SceneDelegate.swift in Sources */,
 				98F9A91027E0D76A00070045 /* APIConstant.swift in Sources */,
 				98F9A90F27E0D76A00070045 /* RequestManager.swift in Sources */,

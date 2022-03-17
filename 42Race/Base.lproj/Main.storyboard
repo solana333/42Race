@@ -36,12 +36,24 @@
                                     <action selector="searchAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDD-uZ-5Ko"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-MN-Gkd">
+                                <rect key="frame" x="0.0" y="135" width="414" height="727"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="h2Q-cX-Sfd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RA3-YK-xO2"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nKU-MN-Gkd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BTQ-wT-u7V"/>
+                            <constraint firstItem="nKU-MN-Gkd" firstAttribute="top" secondItem="h66-wW-zf2" secondAttribute="bottom" id="IEl-an-9yv"/>
                             <constraint firstItem="h66-wW-zf2" firstAttribute="top" secondItem="zqO-pJ-HTe" secondAttribute="bottom" constant="10" id="LNm-QE-QEz"/>
                             <constraint firstItem="zqO-pJ-HTe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NGi-iV-rer"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nKU-MN-Gkd" secondAttribute="bottom" id="Zhk-Hb-x6q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nKU-MN-Gkd" secondAttribute="trailing" id="j2U-xk-LeZ"/>
                             <constraint firstItem="zqO-pJ-HTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="opi-wP-Ini"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zqO-pJ-HTe" secondAttribute="trailing" id="q5Y-rR-XZr"/>
                             <constraint firstItem="h66-wW-zf2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tin-5e-Uyj"/>
@@ -49,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="searchTextField" destination="zqO-pJ-HTe" id="ma6-hV-4ow"/>
+                        <outlet property="tableView" destination="nKU-MN-Gkd" id="PMK-th-JNd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

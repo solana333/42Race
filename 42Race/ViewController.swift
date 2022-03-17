@@ -10,12 +10,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
-    var viewModel: BusinessViewModel = BusinessViewModel()
+    @IBOutlet weak var tableView: UITableView!
 
+    var viewModel: BusinessViewModel = BusinessViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewModel.delegate = self
+        tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
     }
 
     @IBAction func searchAction() {
@@ -30,12 +32,27 @@ extension ViewController: BusinessViewModelDelegate {
     func errorDidOccur(viewModel: BusinessViewModel) {
 
     }
-
     func didStartLoading(viewModel: BusinessViewModel) {
 
     }
 
     func itemsLoaded() {
-        print(viewModel.business)
+        self.tableView.reloadData()
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.business.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell", for: indexPath) as! BusinessTableViewCell
+        cell.bindData(data: self.viewModel.business[indexPath.row])
+        return cell
     }
 }
