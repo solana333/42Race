@@ -25,62 +25,37 @@ final class RequestManager {
     // MARK: - Shared Instance
     static let shared: RequestManager = RequestManager()
 
-    static func requestJsonRx(api: RequestService) -> Observable<[String: Any]> {
-        return Observable.create({ observer -> Disposable in
-            let request = provider.request(api, completion: { result in
-                do {
-                    switch result {
-                    case .success(let response):
-                        let json = try response.mapJSON()
-                        if let jsonDict = json as? [String: Any] {
-                            observer.onNext(jsonDict)
-                            observer.onCompleted()
-                        } else {
-                           // throw ResponseError.invalidJSONFormat
-                            print("throw error here")
-                        }
-                    case .failure(let error):
-                        throw error
-                    }
-                } catch let error {
-                    observer.onError(error)
-                    observer.onCompleted()
-                }
-            })
-            return Disposables.create {
-                request.cancel()
-            }
-        })
-    }
-
-    static func getBusinesses() {
+    func searchBusiness(text: String, completion: @escaping ([BusinessModel]) -> Void) {
         let parameters: [String: Any] = [
             "longitude": 103.78667472615952,
             "latitude": 1.296940431677624,
-            "term" : "he"
+            "term" : text
         ]
         provider.request(.getBusinesses(requestDic: parameters)) { result in
             do {
                 switch result {
                 case .success(let response):
-                    if let json = try response.mapJSON() as? [String: Any] {
-                        print(String(describing: response.request))
-                        print(String(describing: json))
-
-                        if let businessesJson = json["businesses"] {
-                            if let response = Mapper<BusinessModel>().mapArray(JSONObject: businessesJson) {
-                                print(response)
-                            }
-                        }
-
+                    guard let json = try response.mapJSON() as? [String: Any] else {
+                        completion([])
+                        return
                     }
-                    //completion(response, nil)
+                    print(String(describing: response.request))
+                    print(String(describing: json))
+                    guard let businessesJson = json["businesses"] else {
+                        completion([])
+                        return
+                    }
+                    guard let response = Mapper<BusinessModel>().mapArray(JSONObject: businessesJson) else  {
+                        completion([])
+                        return
+                    }
+                    completion(response)
                 case .failure(let error):
-                    //completion(nil, error)
+                    completion([])
                     print(error)
                 }
             } catch let error {
-                //completion(nil, error)
+                completion([])
                 print(error)
             }
         }

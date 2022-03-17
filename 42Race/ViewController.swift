@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
+    var viewModel: BusinessViewModel = BusinessViewModel()
 
 
     override func viewDidLoad() {
@@ -18,9 +19,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func searchAction() {
-        RequestManager.getBusinesses()
+        guard let text = searchTextField.text else {
+            return
+        }
+        viewModel.searchBusiness(text: text)
     }
-
-
 }
 
+extension ViewController: BusinessViewModelDelegate {
+    func errorDidOccur(viewModel: BusinessViewModel) {
+
+    }
+
+    func didStartLoading(viewModel: BusinessViewModel) {
+
+    }
+
+    func itemsLoaded() {
+        print(viewModel.business)
+    }
+}
