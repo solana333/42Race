@@ -24,9 +24,9 @@ struct BusinessModel: Mappable {
         id <- map["id"]
         alias <- map["alias"]
         name <- map["name"]
-        imageUrl <- map["imageUrl"]
-        isClosed <- map["isClosed"]
-        reviewCount <- map["reviewCount"]
+        imageUrl <- map["image_url"]
+        isClosed <- map["is_closed"]
+        reviewCount <- map["review_count"]
         rating <- map["rating"]
     }
 }

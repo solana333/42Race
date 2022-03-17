@@ -44,8 +44,10 @@ extension RequestService: TargetType {
         }
     }
     
-    var headers: [String: String]? {
-        return nil 
+    var headers: [String : String]? {
+        return [
+            "Authorization": "Bearer \(APIConstant.API_KEY)"
+        ]
     }
     
     var task: Task {
