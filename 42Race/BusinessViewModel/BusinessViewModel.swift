@@ -33,7 +33,11 @@ class BusinessViewModel {
             guard let self = self else {
                 return
             }
-            self.business = data.sorted(by: { $0.rating > $1.rating })
+            if self.sortType == .rating {
+                self.business = data.sorted(by: { $0.rating > $1.rating })
+            } else {
+                self.business = data.sorted(by: { $0.distance > $1.distance })
+            }
             self.delegate?.itemsLoaded()
         }
     }

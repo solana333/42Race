@@ -23,6 +23,7 @@
 		98F9A91127E0D76A00070045 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A90D27E0D76A00070045 /* RequestService.swift */; };
 		F0542F4227E4C28C00E826EE /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0542F4127E4C28C00E826EE /* MockDataService.swift */; };
 		F0542F4327E4C69A00E826EE /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0542F4127E4C28C00E826EE /* MockDataService.swift */; };
+		F0542F4627E4CB5400E826EE /* BusinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0542F4427E4CB5400E826EE /* BusinessTests.swift */; };
 		F05F2BD227E3468F003DC371 /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F2BD127E3468F003DC371 /* BusinessViewModel.swift */; };
 		F05F2BD627E34F69003DC371 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */; };
 		F05F2BD727E34F69003DC371 /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */; };
@@ -79,6 +80,7 @@
 		B21FBE70693696DAA7EC2587 /* Pods_42Race.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_42Race.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD099871942B24BA10D2CEF /* Pods-42Race.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-42Race.debug.xcconfig"; path = "Target Support Files/Pods-42Race/Pods-42Race.debug.xcconfig"; sourceTree = "<group>"; };
 		F0542F4127E4C28C00E826EE /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
+		F0542F4427E4CB5400E826EE /* BusinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTests.swift; sourceTree = "<group>"; };
 		F05F2BD127E3468F003DC371 /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
 		F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				98F9A8DE27E0D5EF00070045 /* _2RaceTests.swift */,
 				98F9A8E027E0D5EF00070045 /* Info.plist */,
 				F0542F4127E4C28C00E826EE /* MockDataService.swift */,
+				F0542F4427E4CB5400E826EE /* BusinessTests.swift */,
 			);
 			path = 42RaceTests;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			files = (
 				98F9A8DF27E0D5EF00070045 /* _2RaceTests.swift in Sources */,
 				F0542F4227E4C28C00E826EE /* MockDataService.swift in Sources */,
+				F0542F4627E4CB5400E826EE /* BusinessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
