@@ -19,6 +19,7 @@ struct BusinessModel: Mappable {
     var rating: Double = 0
     var category: [CategoryModel] = []
     var address: [String] = []
+    var distance: Double = 0
 
     init?(map: Map) {}
 
@@ -32,6 +33,7 @@ struct BusinessModel: Mappable {
         rating <- map["rating"]
         category <- map["categories"]
         address <- map["location.display_address"]
+        distance <- map["distance"]
     }
 
     func getCategory() -> String {

@@ -17,27 +17,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqO-pJ-HTe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwg-ZI-rde">
+                                <rect key="frame" x="0.0" y="44" width="414" height="128"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="daH-KD-30o">
+                                        <rect key="frame" x="0.0" y="0.0" width="347" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="p87-Pa-YaU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dy-Fg-yKL">
+                                        <rect key="frame" x="347" y="0.0" width="67" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="74i-aA-uHS"/>
+                                            <constraint firstAttribute="height" constant="60" id="ZWF-e0-4Mz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="searchAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="Veg-dC-fLZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4t-4n-6uG">
+                                        <rect key="frame" x="347" y="97" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="sortAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMO-Mo-0yb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pys-dR-dyc"/>
+                                    <constraint firstAttribute="bottom" secondItem="s4t-4n-6uG" secondAttribute="bottom" id="XZT-F2-62t"/>
+                                    <constraint firstItem="4Dy-Fg-yKL" firstAttribute="leading" secondItem="daH-KD-30o" secondAttribute="trailing" id="aFy-NE-zVq"/>
+                                    <constraint firstAttribute="trailing" secondItem="s4t-4n-6uG" secondAttribute="trailing" id="cb1-uB-iK5"/>
+                                    <constraint firstItem="daH-KD-30o" firstAttribute="top" secondItem="xwg-ZI-rde" secondAttribute="top" id="eY2-Ee-Uc0"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Dy-Fg-yKL" secondAttribute="trailing" id="iu0-7H-Rpc"/>
+                                    <constraint firstItem="4Dy-Fg-yKL" firstAttribute="top" secondItem="xwg-ZI-rde" secondAttribute="top" id="uU3-Tx-NNM"/>
+                                    <constraint firstItem="daH-KD-30o" firstAttribute="leading" secondItem="xwg-ZI-rde" secondAttribute="leading" id="vEC-jC-9FH"/>
+                                    <constraint firstAttribute="height" constant="128" id="vd0-7S-TYf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h66-wW-zf2">
-                                <rect key="frame" x="173.5" y="104" width="67" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="GWs-Lc-eGF"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="searchAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDD-uZ-5Ko"/>
-                                </connections>
-                            </button>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-MN-Gkd">
-                                <rect key="frame" x="0.0" y="135" width="414" height="727"/>
+                                <rect key="frame" x="0.0" y="172" width="414" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="h2Q-cX-Sfd"/>
@@ -49,24 +74,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nKU-MN-Gkd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BTQ-wT-u7V"/>
-                            <constraint firstItem="nKU-MN-Gkd" firstAttribute="top" secondItem="h66-wW-zf2" secondAttribute="bottom" id="IEl-an-9yv"/>
-                            <constraint firstItem="h66-wW-zf2" firstAttribute="top" secondItem="zqO-pJ-HTe" secondAttribute="bottom" constant="10" id="LNm-QE-QEz"/>
-                            <constraint firstItem="zqO-pJ-HTe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NGi-iV-rer"/>
+                            <constraint firstItem="xwg-ZI-rde" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CKf-OV-tiu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xwg-ZI-rde" secondAttribute="trailing" id="Oka-Bx-kSp"/>
+                            <constraint firstItem="nKU-MN-Gkd" firstAttribute="top" secondItem="xwg-ZI-rde" secondAttribute="bottom" id="R3f-bQ-r7z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nKU-MN-Gkd" secondAttribute="bottom" id="Zhk-Hb-x6q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nKU-MN-Gkd" secondAttribute="trailing" id="j2U-xk-LeZ"/>
-                            <constraint firstItem="zqO-pJ-HTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="opi-wP-Ini"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zqO-pJ-HTe" secondAttribute="trailing" id="q5Y-rR-XZr"/>
-                            <constraint firstItem="h66-wW-zf2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tin-5e-Uyj"/>
+                            <constraint firstItem="xwg-ZI-rde" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u0G-4O-jTW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchTextField" destination="zqO-pJ-HTe" id="ma6-hV-4ow"/>
+                        <outlet property="searchTextField" destination="daH-KD-30o" id="USl-qF-lju"/>
                         <outlet property="tableView" destination="nKU-MN-Gkd" id="PMK-th-JNd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="68"/>
+            <point key="canvasLocation" x="40.579710144927539" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>

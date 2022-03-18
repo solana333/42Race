@@ -28,6 +28,17 @@ class ViewController: UIViewController {
         }
         viewModel.searchBusiness(text: text)
     }
+    @IBAction func sortAction() {
+        let sortVC = SortViewController()
+        sortVC.modalTransitionStyle = .crossDissolve
+        sortVC.modalPresentationStyle = .overFullScreen
+        sortVC.sortType = viewModel.sortType
+        sortVC.sortByHandler = { [weak self] type in
+            guard let self = self else { return }
+            self.viewModel.sortBusinessBy(type: type)
+        }
+        self.present(sortVC, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: BusinessViewModelDelegate {

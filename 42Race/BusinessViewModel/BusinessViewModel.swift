@@ -24,18 +24,28 @@ class BusinessViewModel {
 
     var delegate: BusinessViewModelDelegate?
     var service = RequestManager.shared
-
     var business: [BusinessModel] = []
+    var sortType: SortType = .rating
 
     func searchBusiness(text: String) {
         delegate?.didStartLoading()
         service.searchBusiness(text: text) { [weak self] data in
             guard let self = self else {
-
                 return
             }
-            self.business = data
+            self.business = data.sorted(by: { $0.rating > $1.rating })
             self.delegate?.itemsLoaded()
         }
+    }
+
+    func sortBusinessBy(type: SortType) {
+        self.sortType = type
+        if type == .rating {
+            business = business.sorted(by: { $0.rating > $1.rating })
+        }
+        if type == .distance {
+            business = business.sorted(by: { $0.distance > $1.distance })
+        }
+        self.delegate?.itemsLoaded()
     }
 }
