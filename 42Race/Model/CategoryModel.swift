@@ -2,7 +2,7 @@
 //  CategoryModel.swift
 //  42Race
 //
-//  Created by BeLive on 3/17/22.
+//  Created by Dev on 3/17/22.
 //
 
 import Foundation
