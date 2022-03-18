@@ -2,15 +2,15 @@
 //  BusinessViewModel.swift
 //  42Race
 //
-//  Created by BeLive on 3/17/22.
+//  Created by Dev on 3/17/22.
 //
 
 import Foundation
 
 
 protocol BusinessViewModelDelegate {
-    func errorDidOccur (viewModel: BusinessViewModel)
-    func didStartLoading (viewModel: BusinessViewModel)
+    func errorDidOccur ()
+    func didStartLoading ()
     func itemsLoaded()
 }
 
@@ -28,8 +28,10 @@ class BusinessViewModel {
     var business: [BusinessModel] = []
 
     func searchBusiness(text: String) {
+        delegate?.didStartLoading()
         service.searchBusiness(text: text) { [weak self] data in
             guard let self = self else {
+
                 return
             }
             self.business = data

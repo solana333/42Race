@@ -7,12 +7,14 @@
 
 import UIKit
 
+let tagLoading: Int = 999999
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
     var viewModel: BusinessViewModel = BusinessViewModel()
+    lazy var loadingView: LoadingView = LoadingView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +31,20 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: BusinessViewModelDelegate {
-    func errorDidOccur(viewModel: BusinessViewModel) {
-
+    func errorDidOccur() {
+        if let viewWithTag = self.view.viewWithTag(tagLoading) {
+            viewWithTag.removeFromSuperview()
+        }
     }
-    func didStartLoading(viewModel: BusinessViewModel) {
-
+    func didStartLoading() {
+        self.loadingView.tag = tagLoading
+        self.view.addSubview(self.loadingView)
     }
 
     func itemsLoaded() {
+        if let viewWithTag = self.view.viewWithTag(tagLoading) {
+            viewWithTag.removeFromSuperview()
+        }
         self.tableView.reloadData()
     }
 }
