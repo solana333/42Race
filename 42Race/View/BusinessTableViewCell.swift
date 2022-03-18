@@ -15,6 +15,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ class BusinessTableViewCell: UITableViewCell {
         self.addressLabel.text = data.address.joined(separator: ", ")
         self.starLabel.text = "\(data.rating)"
         self.categoryLabel.text = data.getCategory()
+        self.distanceLabel.text = "\(data.distance.rounded())"
         if let url = URL(string: data.imageUrl) {
             self.photoImageView.kf.setImage(with: url, placeholder: nil)
         }
