@@ -9,16 +9,15 @@ import Foundation
 import Moya
 import Alamofire
 import ObjectMapper
-import RxSwift
 
 
 let provider = MoyaProvider<RequestService>()
 
 protocol RequestProtocol {
-    func getBusinesses() ->  Observable<[BusinessModel]>
+    func searchBusiness(text: String, completion: @escaping ([BusinessModel]) -> Void)
 }
 
-final class RequestManager {
+final class RequestManager: RequestProtocol {
 
     private init () {}
     

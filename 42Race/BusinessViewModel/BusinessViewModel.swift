@@ -23,7 +23,7 @@ enum Message : String {
 class BusinessViewModel {
 
     var delegate: BusinessViewModelDelegate?
-    var service = RequestManager.shared
+    var service: RequestProtocol = RequestManager.shared
     var business: [BusinessModel] = []
     var sortType: SortType = .rating
 

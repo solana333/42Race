@@ -28,7 +28,7 @@ class BusinessTableViewCell: UITableViewCell {
         self.addressLabel.text = data.address.joined(separator: ", ")
         self.starLabel.text = "\(data.rating)"
         self.categoryLabel.text = data.getCategory()
-        self.distanceLabel.text = "\(data.distance.rounded())"
+        self.distanceLabel.text = String(format: "%.0f m", data.distance)
         if let url = URL(string: data.imageUrl) {
             self.photoImageView.kf.setImage(with: url, placeholder: nil)
         }
