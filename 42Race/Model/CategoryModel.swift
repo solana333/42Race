@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-struct CategoryModel: Mappable {
+struct CategoryModel: Mappable, Equatable {
 
     var alias: String = ""
     var title: String = ""

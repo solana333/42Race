@@ -19,11 +19,12 @@ class BusinessTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.photoImageView.layer.cornerRadius = 10
     }
 
     func bindData(data: BusinessModel) {
         self.nameLabel.text = data.name
-        self.addressLabel.text = data.address
+        self.addressLabel.text = data.address.joined(separator: ", ")
         self.starLabel.text = "\(data.rating)"
         self.categoryLabel.text = data.getCategory()
         if let url = URL(string: data.imageUrl) {

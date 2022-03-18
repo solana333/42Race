@@ -18,7 +18,7 @@ struct BusinessModel: Mappable {
     var reviewCount: Int = 0
     var rating: Double = 0
     var category: [CategoryModel] = []
-    var address: String = ""
+    var address: [String] = []
 
     init?(map: Map) {}
 
@@ -31,14 +31,10 @@ struct BusinessModel: Mappable {
         reviewCount <- map["review_count"]
         rating <- map["rating"]
         category <- map["categories"]
-        address <- map["location.address1"]
+        address <- map["location.display_address"]
     }
 
     func getCategory() -> String {
-        var category = ""
-        for element in self.category {
-            category = category + " " + element.title
-        }
-        return category
+        return self.category.map({ $0.title }).joined(separator: " - ")
     }
 }
