@@ -12,8 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
 
-    var viewModel: BusinessViewModel = BusinessViewModel()
+    var viewModel: BusinessViewModel = BusinessViewModel(RequestManager.shared)
     lazy var loadingView: LoadingView = LoadingView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)))
 
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
 
     private func setupView() {
         viewModel.delegate = self
+        messageView.isHidden = true
         searchTextField.addTarget(self, action: #selector(searchTextDidChange), for: .editingChanged)
         tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
         tableView.register(UINib(nibName: "NoResultTableViewCell", bundle: nil), forCellReuseIdentifier: "NoResultTableViewCell")
@@ -53,10 +56,12 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: BusinessViewModelDelegate {
-    func errorDidOccur() {
+    func errorDidOccur(error: Error) {
         if let viewWithTag = self.view.viewWithTag(tagLoading) {
             viewWithTag.removeFromSuperview()
         }
+        self.errorLabel.text = error.localizedDescription
+        self.messageView.isHidden = false
     }
     func didStartLoading() {
         self.loadingView.tag = tagLoading
@@ -67,6 +72,7 @@ extension ViewController: BusinessViewModelDelegate {
         if let viewWithTag = self.view.viewWithTag(tagLoading) {
             viewWithTag.removeFromSuperview()
         }
+        self.messageView.isHidden = true
         self.tableView.reloadData()
     }
 }

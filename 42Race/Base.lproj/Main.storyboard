@@ -63,20 +63,44 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RA3-YK-xO2"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Z7-uz-K5P">
+                                <rect key="frame" x="0.0" y="89" width="414" height="773"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voG-Dx-JAe">
+                                        <rect key="frame" x="10" y="376.5" width="394" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="voG-Dx-JAe" firstAttribute="centerY" secondItem="2Z7-uz-K5P" secondAttribute="centerY" id="1tP-uu-yTr"/>
+                                    <constraint firstAttribute="trailing" secondItem="voG-Dx-JAe" secondAttribute="trailing" constant="10" id="5lB-Oa-Pwr"/>
+                                    <constraint firstItem="voG-Dx-JAe" firstAttribute="leading" secondItem="2Z7-uz-K5P" secondAttribute="leading" constant="10" id="b9v-G0-0jl"/>
+                                    <constraint firstItem="voG-Dx-JAe" firstAttribute="centerX" secondItem="2Z7-uz-K5P" secondAttribute="centerX" id="e58-pz-GiO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2Z7-uz-K5P" firstAttribute="bottom" secondItem="nKU-MN-Gkd" secondAttribute="bottom" id="7cP-xc-uv9"/>
                             <constraint firstItem="nKU-MN-Gkd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BTQ-wT-u7V"/>
                             <constraint firstItem="xwg-ZI-rde" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CKf-OV-tiu"/>
+                            <constraint firstItem="2Z7-uz-K5P" firstAttribute="top" secondItem="nKU-MN-Gkd" secondAttribute="top" id="L6Y-ID-41J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xwg-ZI-rde" secondAttribute="trailing" id="Oka-Bx-kSp"/>
                             <constraint firstItem="nKU-MN-Gkd" firstAttribute="top" secondItem="xwg-ZI-rde" secondAttribute="bottom" id="R3f-bQ-r7z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nKU-MN-Gkd" secondAttribute="bottom" id="Zhk-Hb-x6q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nKU-MN-Gkd" secondAttribute="trailing" id="j2U-xk-LeZ"/>
+                            <constraint firstItem="2Z7-uz-K5P" firstAttribute="trailing" secondItem="nKU-MN-Gkd" secondAttribute="trailing" id="kCl-Ae-9Eg"/>
+                            <constraint firstItem="2Z7-uz-K5P" firstAttribute="leading" secondItem="nKU-MN-Gkd" secondAttribute="leading" id="qe4-Rj-dC4"/>
                             <constraint firstItem="xwg-ZI-rde" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u0G-4O-jTW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="voG-Dx-JAe" id="XWt-iV-8uA"/>
+                        <outlet property="messageView" destination="2Z7-uz-K5P" id="WKI-Qj-GRA"/>
                         <outlet property="searchTextField" destination="daH-KD-30o" id="USl-qF-lju"/>
                         <outlet property="tableView" destination="nKU-MN-Gkd" id="PMK-th-JNd"/>
                     </connections>

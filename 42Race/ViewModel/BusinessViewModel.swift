@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol BusinessViewModelDelegate {
-    func errorDidOccur ()
+    func errorDidOccur (error: Error)
     func didStartLoading ()
     func itemsLoaded()
 }
@@ -18,19 +18,25 @@ enum Message : String {
     case error = "error. Please try again !"
 }
 
-
-
 class BusinessViewModel {
 
     var delegate: BusinessViewModelDelegate?
-    var service: RequestProtocol = RequestManager.shared
+    var service: RequestProtocol?
     var business: [BusinessModel] = []
     var error: Error?
     var sortType: SortType = .rating
 
+    var showError: Bool = true
+    var showLoading: Bool = false
+    
+
+    init (_ service: RequestProtocol) {
+        self.service = service
+    }
+
     func searchBusiness(text: String) {
         delegate?.didStartLoading()
-        service.searchBusiness(text: text) { [weak self] data, error in
+        service?.searchBusiness(text: text) { [weak self] data, error in
             guard let self = self else {
                 return
             }
@@ -39,8 +45,11 @@ class BusinessViewModel {
             } else {
                 self.business = data.sorted(by: { $0.distance > $1.distance })
             }
-            self.error = error
-            self.delegate?.itemsLoaded()
+            if let error = error {
+                self.delegate?.errorDidOccur(error: error)
+            } else {
+                self.delegate?.itemsLoaded()
+            }
         }
     }
 

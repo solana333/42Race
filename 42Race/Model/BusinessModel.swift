@@ -22,6 +22,7 @@ struct BusinessModel: Mappable {
     var distance: Double = 0
 
     init?(map: Map) {}
+    init() {}
 
     mutating func mapping(map: Map) {
         id <- map["id"]
