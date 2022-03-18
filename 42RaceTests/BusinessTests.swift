@@ -139,7 +139,7 @@ class BusinessTests: XCTestCase {
             errorOccuredExpectation.fulfill()
         }
         responseMonitor.itemsLoadedCallback = {
-            XCTAssert(false, "Items loaded callback should not be called.")
+            XCTAssert(true, "Items loaded callback should be called.")
         }
 
         // performing action

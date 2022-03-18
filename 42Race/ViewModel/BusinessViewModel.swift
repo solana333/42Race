@@ -35,7 +35,10 @@ class BusinessViewModel {
     }
 
     func searchBusiness(text: String) {
+        showError = false
+        showLoading = true
         delegate?.didStartLoading()
+
         service?.searchBusiness(text: text) { [weak self] data, error in
             guard let self = self else {
                 return
@@ -46,8 +49,12 @@ class BusinessViewModel {
                 self.business = data.sorted(by: { $0.distance > $1.distance })
             }
             if let error = error {
+                self.showError = true
+                self.showLoading = false
                 self.delegate?.errorDidOccur(error: error)
             } else {
+                self.showError = false
+                self.showLoading = false
                 self.delegate?.itemsLoaded()
             }
         }
