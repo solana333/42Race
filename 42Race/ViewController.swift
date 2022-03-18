@@ -18,16 +18,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
-        tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+        setupView()
     }
 
-    @IBAction func searchAction() {
-        guard let text = searchTextField.text else {
-            return
-        }
-        viewModel.searchBusiness(text: text)
+    private func setupView() {
+        viewModel.delegate = self
+        searchTextField.addTarget(self, action: #selector(searchTextDidChange), for: .editingChanged)
+        tableView.register(UINib(nibName: "BusinessTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessTableViewCell")
+        tableView.register(UINib(nibName: "NoResultTableViewCell", bundle: nil), forCellReuseIdentifier: "NoResultTableViewCell")
     }
+
     @IBAction func sortAction() {
         let sortVC = SortViewController()
         sortVC.modalTransitionStyle = .crossDissolve
@@ -38,6 +38,17 @@ class ViewController: UIViewController {
             self.viewModel.sortBusinessBy(type: type)
         }
         self.present(sortVC, animated: true, completion: nil)
+    }
+
+    @objc func searchTextDidChange() {
+        guard let text = searchTextField.text else {
+            return
+        }
+        if !text.isEmpty {
+            viewModel.searchBusiness(text: text)
+        } else {
+            viewModel.resetBusiness()
+        }
     }
 }
 
@@ -66,12 +77,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if viewModel.business.isEmpty {
+            return 1
+        }
         return viewModel.business.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell", for: indexPath) as! BusinessTableViewCell
-        cell.bindData(data: self.viewModel.business[indexPath.row])
-        return cell
+        if viewModel.business.isEmpty {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "NoResultTableViewCell", for: indexPath)
+            return cell
+        } else {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "BusinessTableViewCell", for: indexPath) as! BusinessTableViewCell
+            cell.bindData(data: self.viewModel.business[indexPath.row])
+            return cell
+        }
     }
 }

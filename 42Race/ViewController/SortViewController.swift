@@ -26,11 +26,11 @@ class SortViewController: UIViewController {
 
     private func setupView() {
         if sortType == .rating {
-            ratingButton.setTitleColor(.blue, for: .normal)
-            distanceButton.setTitleColor(.black, for: .normal)
+            ratingButton.backgroundColor = .red
+            distanceButton.backgroundColor = .white
         } else {
-            ratingButton.setTitleColor(.black, for: .normal)
-            distanceButton.setTitleColor(.blue, for: .normal)
+            ratingButton.backgroundColor = .white
+            distanceButton.backgroundColor = .red
         }
     }
 

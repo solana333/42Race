@@ -71,11 +71,11 @@
                                 <constraint firstItem="n1e-mF-tG5" firstAttribute="centerX" secondItem="6mu-cG-USR" secondAttribute="centerX" id="xB7-uJ-zJT"/>
                             </constraints>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="apP-sf-lTS">
-                            <rect key="frame" x="0.0" y="60" width="414" height="80"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="apP-sf-lTS">
+                            <rect key="frame" x="0.0" y="80" width="161" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-u7-eQG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80.5" height="50"/>
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Rating"/>
@@ -84,7 +84,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jd-xg-edu">
-                                    <rect key="frame" x="0.0" y="40" width="414" height="40"/>
+                                    <rect key="frame" x="80.5" y="0.0" width="80.5" height="50"/>
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Distance"/>
@@ -94,15 +94,14 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="80" id="vo4-wd-C69"/>
+                                <constraint firstAttribute="height" constant="50" id="vo4-wd-C69"/>
                             </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="apP-sf-lTS" secondAttribute="trailing" id="Eqe-bv-TLE"/>
                         <constraint firstItem="apP-sf-lTS" firstAttribute="leading" secondItem="NGm-Md-E97" secondAttribute="leading" id="RdY-xl-ZU5"/>
-                        <constraint firstItem="apP-sf-lTS" firstAttribute="top" secondItem="6mu-cG-USR" secondAttribute="bottom" id="T4z-lK-SyX"/>
+                        <constraint firstItem="apP-sf-lTS" firstAttribute="top" secondItem="6mu-cG-USR" secondAttribute="bottom" constant="20" id="T4z-lK-SyX"/>
                         <constraint firstItem="6mu-cG-USR" firstAttribute="leading" secondItem="NGm-Md-E97" secondAttribute="leading" id="j7q-6y-mX4"/>
                         <constraint firstAttribute="height" constant="300" id="mGq-4q-fwm"/>
                         <constraint firstAttribute="trailing" secondItem="6mu-cG-USR" secondAttribute="trailing" id="tZo-ye-AcH"/>

@@ -38,6 +38,11 @@ class BusinessViewModel {
         }
     }
 
+    func resetBusiness() {
+        self.business = []
+        self.delegate?.itemsLoaded()
+    }
+
     func sortBusinessBy(type: SortType) {
         self.sortType = type
         if type == .rating {
