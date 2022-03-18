@@ -14,7 +14,7 @@ import ObjectMapper
 let provider = MoyaProvider<RequestService>()
 
 protocol RequestProtocol {
-    func searchBusiness(text: String, completion: @escaping ([BusinessModel]) -> Void)
+    func searchBusiness(text: String, completion: @escaping ([BusinessModel], Error?) -> Void)
 }
 
 final class RequestManager: RequestProtocol {
@@ -24,7 +24,7 @@ final class RequestManager: RequestProtocol {
     // MARK: - Shared Instance
     static let shared: RequestManager = RequestManager()
 
-    func searchBusiness(text: String, completion: @escaping ([BusinessModel]) -> Void) {
+    func searchBusiness(text: String, completion: @escaping ([BusinessModel], Error?) -> Void) {
         let parameters: [String: Any] = [
             "longitude": 103.78667472615952,
             "latitude": 1.296940431677624,
@@ -35,26 +35,26 @@ final class RequestManager: RequestProtocol {
                 switch result {
                 case .success(let response):
                     guard let json = try response.mapJSON() as? [String: Any] else {
-                        completion([])
+                        completion([], nil)
                         return
                     }
                     print(String(describing: response.request))
                     print(String(describing: json))
                     guard let businessesJson = json["businesses"] else {
-                        completion([])
+                        completion([], nil)
                         return
                     }
                     guard let response = Mapper<BusinessModel>().mapArray(JSONObject: businessesJson) else  {
-                        completion([])
+                        completion([], nil)
                         return
                     }
-                    completion(response)
+                    completion(response, nil)
                 case .failure(let error):
-                    completion([])
+                    completion([], error)
                     print(error)
                 }
             } catch let error {
-                completion([])
+                completion([], error)
                 print(error)
             }
         }

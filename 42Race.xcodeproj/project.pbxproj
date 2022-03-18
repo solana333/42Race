@@ -160,14 +160,12 @@
 		98F9A8C627E0D5ED00070045 /* 42Race */ = {
 			isa = PBXGroup;
 			children = (
-				F0E7698627E4165800598D36 /* ViewController */,
 				F05F2BD327E34F3D003DC371 /* View */,
-				F05F2BD027E34677003DC371 /* BusinessViewModel */,
+				F05F2BD027E34677003DC371 /* ViewModel */,
 				F08AE1E527E1522E0039FAED /* Model */,
 				98F9A90A27E0D76A00070045 /* API */,
 				98F9A8C727E0D5ED00070045 /* AppDelegate.swift */,
 				98F9A8C927E0D5ED00070045 /* SceneDelegate.swift */,
-				98F9A8CB27E0D5ED00070045 /* ViewController.swift */,
 				98F9A8CD27E0D5ED00070045 /* Main.storyboard */,
 				98F9A8D027E0D5EF00070045 /* Assets.xcassets */,
 				98F9A8D227E0D5EF00070045 /* LaunchScreen.storyboard */,
@@ -216,24 +214,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F05F2BD027E34677003DC371 /* BusinessViewModel */ = {
+		F05F2BD027E34677003DC371 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				F05F2BD127E3468F003DC371 /* BusinessViewModel.swift */,
 			);
-			path = BusinessViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F05F2BD327E34F3D003DC371 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F060DDA627E4DAB200E6999B /* Common */,
+				F060DDA527E4DA9800E6999B /* Cell */,
+				F0E7698627E4165800598D36 /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F060DDA527E4DA9800E6999B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				F05F2BD427E34F69003DC371 /* BusinessTableViewCell.swift */,
 				F05F2BD527E34F69003DC371 /* BusinessTableViewCell.xib */,
-				F0E7698327E412F900598D36 /* LoadingView.swift */,
 				F0EC3D5B27E48602002E690C /* NoResultTableViewCell.swift */,
 				F0EC3D5C27E48602002E690C /* NoResultTableViewCell.xib */,
 			);
-			path = View;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F060DDA627E4DAB200E6999B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F0E7698327E412F900598D36 /* LoadingView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		F08AE1E527E1522E0039FAED /* Model */ = {
@@ -248,6 +263,7 @@
 		F0E7698627E4165800598D36 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				98F9A8CB27E0D5ED00070045 /* ViewController.swift */,
 				F0E7698727E4167800598D36 /* SortViewController.swift */,
 				F0E7698827E4167800598D36 /* SortViewController.xib */,
 			);

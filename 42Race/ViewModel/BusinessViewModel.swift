@@ -25,11 +25,12 @@ class BusinessViewModel {
     var delegate: BusinessViewModelDelegate?
     var service: RequestProtocol = RequestManager.shared
     var business: [BusinessModel] = []
+    var error: Error?
     var sortType: SortType = .rating
 
     func searchBusiness(text: String) {
         delegate?.didStartLoading()
-        service.searchBusiness(text: text) { [weak self] data in
+        service.searchBusiness(text: text) { [weak self] data, error in
             guard let self = self else {
                 return
             }
@@ -38,6 +39,7 @@ class BusinessViewModel {
             } else {
                 self.business = data.sorted(by: { $0.distance > $1.distance })
             }
+            self.error = error
             self.delegate?.itemsLoaded()
         }
     }
