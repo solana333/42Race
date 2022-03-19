@@ -8,7 +8,7 @@
 import UIKit
 
 let tagLoading: Int = 999999
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: BusinessViewModelDelegate {
+extension MainViewController: BusinessViewModelDelegate {
     func errorDidOccur(error: Error) {
         if let viewWithTag = self.view.viewWithTag(tagLoading) {
             viewWithTag.removeFromSuperview()
@@ -92,7 +92,7 @@ extension ViewController: BusinessViewModelDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
