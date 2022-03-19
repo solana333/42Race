@@ -17,6 +17,10 @@ class ViewController: UIViewController {
 
     var viewModel: BusinessViewModel = BusinessViewModel(RequestManager.shared)
     lazy var loadingView: LoadingView = LoadingView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)))
+    // Handle delay search text filed
+    var searchTimer: Timer?
+    let searchDelay = 0.5
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,17 @@ class ViewController: UIViewController {
     }
 
     @objc func searchTextDidChange() {
+        handleSearch()
+    }
+
+    func handleSearch() {
+        if let searchTimer = searchTimer, searchTimer.isValid {
+            searchTimer.invalidate()
+        }
+        searchTimer = Timer.scheduledTimer(timeInterval: searchDelay, target: self, selector: #selector(searchBusiness), userInfo: nil, repeats: false)
+    }
+
+    @objc func searchBusiness() {
         guard let text = searchTextField.text else {
             return
         }
